@@ -55,3 +55,27 @@ main {
   padding-left: 2%;
 
 }
+/*
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+}
+*/
+
+@media screen and (max-width: 500px) {
+  
+  h1 {
+    font-size: 1.2em;
+  }
+
+  section#external-links {
+  width: 100%;
+ /* position: fixed;*/
+  }
+
+  main {
+  width: 100%;
+
+  }
+}
