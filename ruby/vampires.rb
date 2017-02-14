@@ -16,6 +16,16 @@ def vampdetector()
 	puts "Would you like to enroll in the company’s health insurance?"
 	insurance = gets.chomp
 
+	allergies = ""
+	until allergies == "done" do
+		puts "you have any allergies?"
+		allergies = gets.chomp
+		if allergies == "sunshine"
+			puts "Probably a vampire"
+			return
+		end
+	end
+
 	agecalc = 2017-year
 	agecalc2 = 2017-year-1
 
@@ -44,7 +54,7 @@ puts "How many employees are to be processed?"
 employees = gets.chomp
 employees = employees.to_i	
 
-while employees > 0
+while employees > 0 do
 	vampdetector()
 	employees = employees -1
 end
