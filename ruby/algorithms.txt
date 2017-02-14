@@ -1,0 +1,12 @@
+Elevator algorithm
+Determine floor you are on
+Determine floor you are going to (the number of the room you are going to with the second two digits trucated, unless you are leaving, then it is "L")
+If the floor number you are going to is greater than the one you are on, press the up button otherwise press the down button.
+When the elevator arrives, get on the elevator.
+Press the floor number (or "L") you want to go to.
+
+
+Life aglorithm - picking outfit
+Determine the weather.
+If the weather is below 40 it is cold, if it is between 40 and 60 it is cool and if it is above 60 it is warm.
+If the weather is cold pick jeans, a clean shirt and a heavy jacket. if the weather is cool pick jeans, a clean shirt and a light jacket.  If the weather is warm pick shorts and a t shirt.
