@@ -44,4 +44,20 @@ end
 #puts decrypt("zed")
 #puts decrypt("abc")
 
-puts decrypt(encrypt("swordfish"))
+#puts decrypt(encrypt("swordfish"))
+#this encrypt then decrpyts (iterates forward and iterates backward)
+
+#Asks a secret agent (the user) whether they would like to decrypt or encrypt a password
+puts "would you like you encrypt or decrypt a password?"
+e_or_d = gets.chomp
+#Asks them for the password
+puts "What is the password you would like to #{e_or_d}"
+password  = gets.chomp
+#Conducts the requested operation, prints the result to the screen, and exits
+puts "#{e_or_d}ed password: "
+if e_or_d == "encrypt"
+	puts encrypt(password)
+elsif e_or_d == "decrypt"
+	puts decrypt(password)
+end
+
