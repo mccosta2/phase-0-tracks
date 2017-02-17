@@ -21,8 +21,7 @@ def encrypt(str)
 	return str
 end
 
-puts encrypt("zed")
-
+#puts encrypt("zed")
 #decrypt method
 #reverse advance of letter
 #"abcdefghijklmnopqrstuvwxyz"
@@ -41,5 +40,8 @@ def decrypt(str)
 	end
 	return str
 end
-puts decrypt("zed")
-puts decrypt("abc")
+
+#puts decrypt("zed")
+#puts decrypt("abc")
+
+puts decrypt(encrypt("swordfish"))
