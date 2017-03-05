@@ -1,4 +1,8 @@
 class TodoList
+	
+	def initialize(list)
+		@start_list = list
+	end
 
 	def get_items()
 		start_list = @start_list
@@ -9,8 +13,13 @@ class TodoList
 		@start_list << new_item
 	end
 
-	def initialize(list)
-		@start_list = list
+	def delete_item(to_delete)
+		@start_list.delete(to_delete)
 	end
+
+	def get_item(index)
+		@start_list[index]
+	end
+
 
 end
