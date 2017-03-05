@@ -1,14 +1,28 @@
 module Shout
   # we'll put some methods here soon, but this code is fine for now!
-    def self.yell_angrily(words)
+    def yell_angrily(words)
     words + "!!!" + " :("
   end
 
-  def self.yelling_happily(words)
+  def yelling_happily(words)
     words + "!!!" + " :)"
   end
 
 end
 
-p Shout.yell_angrily("ahh")
-p Shout.yelling_happily("woo")
+class Man
+	include Shout
+end
+
+class Woman
+	include Shout
+end
+
+
+man = Man.new
+woman = Woman.new
+
+p man.yell_angrily("ahh")
+p woman.yell_angrily("bahh")
+p man.yelling_happily("woo")
+p woman.yelling_happily("wee")
