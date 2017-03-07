@@ -4,8 +4,8 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+#require is for the ruby directory gems
+#relative_require is a relative path to the working ruby file
 require_relative 'state_data'
 
 class VirusPredictor
