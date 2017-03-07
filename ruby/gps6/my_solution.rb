@@ -1,7 +1,7 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself, with: Eli and Clint as instructor].
+# We spent [1] hours on this challenge.
 
 # EXPLANATION OF require_relative
 #require is for the ruby directory gems
@@ -98,3 +98,13 @@ end
 
 #=======================================================================
 # Reflection Section
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+  #these are just two different ways to create key value pairs. the one with symbols can only be use for symbols keys
+# What does require_relative do? How is it different from require?
+  #require_relative allows access to another ruby file in a relative path. require would search the ruby home directory first.
+# What are some ways to iterate through a hash?
+  #.each is one way. Another is to loop through keys in a loop
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+  #we noticed that the state variables and the method itself could be elminiated. We finally noticed that the parameters weren't being leveraged for the method calls
+# What concept did you most solidify in this challenge?
+  #The concept of relative and relative_require was not solid before. Now I feel better.
