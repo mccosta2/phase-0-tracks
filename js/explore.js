@@ -16,5 +16,5 @@ function reverse(str) {
 	}
 
 if (1 == 1) {
-console.log(reverse("monkey"));
+console.log(reverse("Monkey"));
 }
