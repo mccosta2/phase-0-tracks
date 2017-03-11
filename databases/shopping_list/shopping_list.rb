@@ -28,25 +28,25 @@ db.execute(create_table_cmd)
 
 # Can users create data? Retrieve it? Manipulate it?
 
-def adding_item(item, quantity, store)
+def adding_item(db, item, quantity, store)
 
   db.execute("INSERT INTO groceries (item, quantity, store) VALUES (?, ?, ?)", [item, quantity, store])
 
 end
 
-def delete(item)
+def delete(db, item)
 
   db.execute("DELETE FROM groceries where item = ?", [item])
 
 end
 
-def update(item, quantity)
+def update(db, item, quantity)
 
   db.execute("UPDATE groceries set quantity = ? where item = ?", [quantity, item])
 
 end
 #handle string parsing later
-def add_parse(splicedarray)
+def add_parse(db, splicedarray)
 	#defaults
 	quantity = 1
 	store = 'Costco'
@@ -54,37 +54,36 @@ def add_parse(splicedarray)
 	#determine if there is a quanity, if so remove it and move on
 	if splicedarray.first.to_i != 0
 		quantity = splicedarray.first.to_i
-		splicedarray.drop(1)
+		splicedarray = splicedarray.drop(1)
 	end
 	#determine if there is a store then remove
 	if splicedarray.index('from') != nil
 		index = splicedarray.index('from')
 		store = splicedarray[index+1..-1].join(' ')
-		item =  splicedarray[1..index-1].join(' ')
+		item =  splicedarray[0..index-1].join(' ')
 	else
 		item = splicedarray.join(' ')	
 	end
 
-adding_item(item, quantity, store)
+adding_item(db, item, quantity, store)
 
 end
 
 puts "Hi Amelia, welcome to your digital grocery list!"
 
-Puts "Please let me know what you'd like to do: 'add', 'view', 'update' or 'done':"
-# explore ORM by retrieving data
-
+puts "Please let me know what you'd like to do: 'add', 'view', 'update' or 'done':"
 action = gets.chomp
 
 while action != 'done' do
 	if action == 'add'
 		puts "what would you like to add? (quantity <optional>, item, 'from' store <optional>)"
-		puts "ex: '12 bananas' or 'organic milk from costco' or '2 green bell peppers from Marianos'":
-		new_item = gets.chomp.slice(' ')
-		add_parse(new_item)
+		puts "ex: '12 bananas' or 'organic milk from costco' or '2 green bell peppers from Marianos'"
+		new_item = gets.chomp.split(' ')
+
+		add_parse(db, new_item)
 		
 		#do some stuff to add item 		adding_item
-	elsif action == view
+	elsif action == 'view'
 		#for now just test then clean
 		groceries = db.execute("SELECT * FROM groceries")
 		puts groceries
@@ -96,17 +95,14 @@ while action != 'done' do
 		#maybe later add ability to change store
 		update_action = gets.chomp
 		if update_action == 'delete'
-			delete(update_item)
+			delete(db, update_item)
 		else
-			update(update_item, update_action)
+			update(db, update_item, update_action)
 		end
-		new_item = gets.chomp.slice('')
-	else 
-		break
 
 	end
 	
-	Puts "Please let me know what you'd like to do next: 'add', 'view', 'update' or 'done':"
+	puts "Please let me know what you'd like to do next: 'add', 'view', 'update' or 'done':"
 	action = gets.chomp	
 
 end
