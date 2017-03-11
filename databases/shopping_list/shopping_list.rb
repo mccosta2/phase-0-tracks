@@ -77,7 +77,7 @@ action = gets.chomp
 while action != 'done' do
 	if action == 'add'
 		puts "what would you like to add? (quantity <optional>, item, 'from' store <optional>)"
-		puts "ex: '12 bananas' or 'organic milk from costco' or '2 green bell peppers from Marianos'"
+		puts "ex: 'bananas' or '2 green bell peppers from Marianos'"
 		new_item = gets.chomp.split(' ')
 
 		add_parse(db, new_item)
@@ -86,7 +86,10 @@ while action != 'done' do
 	elsif action == 'view'
 		#for now just test then clean
 		groceries = db.execute("SELECT * FROM groceries")
-		puts groceries
+		groceries.each do |item|
+			#######
+			puts "#{item['quantity']} #{item['item']} from #{item['store']}"
+		end
 	elsif action == 'update'
 		puts "what item would you like to change? ..."
 		#add example items from actual list above
