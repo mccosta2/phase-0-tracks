@@ -1,0 +1,18 @@
+
+--joining many tables
+sqlite> select * from businesses, reviews, users where reviews.user_id = userid and reviews.business_id = businesses.id;
+1|Grudy Hollow Wedding Chapel|1|5|Food is amazing|1|2|2|Mandy|Kaling
+2|Amir's Towing|2|4|Food is good|2|2|2|Mandy|Kaling
+2|Amir's Towing|3|3|Food is okay|2|1|1|Bradford|Pitt
+
+--certain columns
+sqlite> select users.first_name, users.last_name, businesses.name, stars, comment from businesses, reviews, users where reviews.user_id = userid and reviews.business_id = businesses.id;
+Mandy|Kaling|Grudy Hollow Wedding Chapel|5|Food is amazing
+Mandy|Kaling|Amir's Towing|4|Food is good
+Bradford|Pitt|Amir's Towing|3|Food is okay
+
+--just a certain business
+sqlite> select users.first_name, users.last_name, businesses.name, stars, comment from businesses, reviews, users where reviews.user_id = userid and reviews.business_id = businesses.id and businesses.name = "Amir's Towing";
+Mandy|Kaling|Amir's Towing|4|Food is good
+Bradford|Pitt|Amir's Towing|3|Food is okay
+
